@@ -7,10 +7,7 @@
   const getData = () => {
     fetch(testURL)
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data.items);
-        setData(data.items);
-      })
+      .then((data) => setData(data.items))
       .catch((error) => {
         console.error('Error:', error);
       });
@@ -22,6 +19,22 @@
     template.innerHTML = `
       <div id="${name}" class="banner-slide fade">
         <img class="img-fluid" src="${img}" alt="${name}" />
+      </div>
+    `;
+    return template.content.cloneNode(true);
+  }
+
+  // TEMPLATE - ARTICLES
+  const getArticleTemplate = (id, title, body, img) => {
+    const template = document.createElement("template");
+    template.innerHTML = `
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">
+        <div id="${id}" class="article card mx-auto">
+          <img class="card-img-top" src="${img}" alt="${title}">
+          <div class="card-body">
+            <p class="card-text">${body}</p>
+          </div>
+        </div>
       </div>
     `;
     return template.content.cloneNode(true);
@@ -54,9 +67,18 @@
 
   // IMPLEMENTACIÓN DEL CONTENIDO DE LA API AL DOM
   const setData = (data) => {
+    const articlesContainer = document.getElementById("articles-wrapper");
     data.map((item) => {
       if (item.system.type === "slide") {
         setSlides( item.elements.imagenes.value );
+      } else if (item.system.type === "contenido" ) {
+        const article = getArticleTemplate(
+          item.system.id,
+          item.elements.bajada.value,
+          item.elements.texto.value,
+          item.elements.imagen.value[0].url
+          );
+        articlesContainer.appendChild(article);
       }
     }); 
   }
