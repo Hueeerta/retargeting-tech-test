@@ -11,8 +11,34 @@ body {
   height: 106px;
 }
 
+#logo {
+  max-width: 300px;
+}
+
 #content {
   background-color: #f5f5f5;
+}
+
+.content-wrapper {
+  max-width: 792px;
+}
+
+#article-wrapper {
+  padding: 0;
+}
+
+.article {
+  max-width: 350px;
+}
+
+.card {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.card-img-top {
+  border-radius: 0;
 }
 
 #footer {
@@ -23,6 +49,10 @@ body {
 @media only screen and (max-width: 991px) {
   #nav {
     height: 53px;
+  }
+
+  #logo {
+    max-width: 150px;
   }
 
   #footer {
