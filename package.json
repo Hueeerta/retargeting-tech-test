@@ -1,0 +1,19 @@
+{
+  "name": "retargeting-tech-test",
+  "version": "1.0.0",
+  "description": "Prueba técnica para optar al cargo de Front-End Developer en la empresa Retargeting.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Hueeerta/retargeting-tech-test.git"
+  },
+  "author": "Felipe Huerta <hueeerta@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hueeerta/retargeting-tech-test/issues"
+  },
+  "homepage": "https://github.com/Hueeerta/retargeting-tech-test#readme"
+}
